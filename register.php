@@ -16,17 +16,20 @@ if($_POST){
 
 	if($password == $password2){
 		echo "<h3>Пароли верны</h3>";
-		$query = "INSERT INTO user(login,password,email,phone,date) VALUES '$login','$password','$email','$phone','$date'";
-		mysqli_query($db_conn, $query) or die(mysqli_error());
+		$query = "INSERT INTO user(login,password,email,phone,date) VALUES ('$login','$password','$email','$phone','$date')";
+		$ok = mysqli_query($db_conn, $query);
+		if(!$ok){
+		 //echo $query;
+		}
 	} else {
 		$arr[] = "Не совпадают пароли"; 
 	
 	}
-	
-}  
 foreach($arr as $arr_err){
 	echo "<p style='color:red; font-size:20px' class='error'>".$arr_err."</p>";
 }
+}  
+
   /*
 echo "<pre>";
 print_r ($_POST); 
