@@ -29,9 +29,15 @@ $keywords="Нужна ли кошка в квартире?";
 	<br>
     <div class="form-group">
     <label for="exampleInputPhone">Введите ваш номер телефона</label>
-    <input type="password" class="form-control" id="exampleInputPhone" type="number" name="password_again" placeholder="Введите телефон(+375(..) ........">
+    <input  class="form-control" id="exampleInputPhone" type="number" name="phone" placeholder="Введите телефон(+375(..) ........">
 	</div>
-	  
+	
+	<br>
+    <div class="form-group">
+    <label for="exampleInputPhone">Дата вашего рождения</label>
+    <input class="form-control" id="exampleInputPhone" type="date" name="password_again" placeholder="">
+	</div>
+	
   <button type="submit" class="btn btn-default">Регистрация</button>
 </form>		
 </div>
