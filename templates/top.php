@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once('config/config.php');
 ?>
 <!Doctype html>
@@ -29,6 +30,19 @@ require_once('config/config.php');
 		<br style="clear:both" />
 		<nav class="menu">
 			<a href="/">главная</a>
+			<?php 
+				if(isset($_SESSION['id'])){
+					?>
+						<a href="home.php">Home</a>
+						<a href="logout.php">Logout</a>
+					<?php
+				} else {
+					?>
+						<a href="login.php">Autorisation</a>
+						<a href="register.php">Registration</a>
+					<?php
+				}
+			?>
 			<a href="index.php?url=care">новости</a>
 			<a href="index.php?url=breed">клички</a>
 			<a href="index.php?url=about">кормление</a>

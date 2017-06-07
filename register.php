@@ -4,7 +4,6 @@ $title="О котах";
 $desc="Нужна ли кошка в квартире?";
 $keywords="Нужна ли кошка в квартире?";
   require_once('templates/top.php');
-
 if($_POST){
 	$arr = [];
 	$login = $_POST['login'];
@@ -15,20 +14,37 @@ if($_POST){
 	$date = $_POST['date'];
 
 	if($password == $password2){
-		echo "<h3>Пароли верны</h3>";
-		$query = "INSERT INTO user(login,password,email,phone,date) VALUES ('$login','$password','$email','$phone','$date')";
-		$ok = mysqli_query($db_conn, $query);
-		if(!$ok){
-		 //echo $query;
-		}
-	} else {
-		$arr[] = "Не совпадают пароли"; 
 	
-	}
+		$query = "SELECT email FROM user WHERE email='$email' ";
+		$adr = mysqli_query($db_conn, $query);
+		if(mysqli_num_rows($adr)>=0){
+			$err[] = 'Такой емаил в базе данных есть';
+		}else {
+			$query = "INSERT INTO user VALUES (
+										 NULL,
+										'$login',
+										'$password',
+										'$email',
+										 NOW(),
+										 NOW(),
+										'unblock')";
+			$ok = mysqli_query($db_conn, $query);
+			}
+		}else{
+		exit($query);
+		}
+?>
+		<script>
+			document.location.href = "login.php";
+		</script>
+<?php		
+		} else {
+		$arr[] = "Не совпадают пароли"; 
+		}
 foreach($arr as $arr_err){
 	echo "<p style='color:red; font-size:20px' class='error'>".$arr_err."</p>";
 }
-}  
+
 
   /*
 echo "<pre>";
@@ -62,21 +78,13 @@ echo "</pre>";*/
 	</div>
 	
   <div class="form-group">
-    <label for="exampleInputEmail1">Введите логин</label>
+    <label for="exampleInputEmail1">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Введите Email" required>
   </div>
 	
-	<br>
-    <div class="form-group">
-    <label for="exampleInputPhone">Введите ваш номер телефона</label>
-    <input  class="form-control" id="exampleInputPhone" type="number" name="phone" placeholder="Введите телефон(+375(..) ........" required>
-	</div>
+
 	
-	<br>
-    <div class="form-group">
-    <label for="exampleInputDate">Дата вашего рождения</label>
-    <input class="form-control" id="exampleInputDate" type="date" name="date" placeholder="" required>
-	</div>
+
 	
   <button type="submit" class="btn btn-default">Регистрация</button>
 </form>		
