@@ -21,9 +21,9 @@ $result = mysqli_fetch_array($adr);
 
 /*
 echo "<pre>";
-print_r($result);
-echo "</pre>";
-*/
+print_r($_SESSION);
+echo "</pre>";*/
+
 echo "<pre>";
 
  ?>

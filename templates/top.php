@@ -31,7 +31,7 @@ require_once('config/config.php');
 		<nav class="menu">
 			<a href="/">главная</a>
 			<?php 
-				if(isset($_SESSION['id'])){
+				if(isset($_SESSION['user_id'])){
 					?>
 						<a href="home.php">Home</a>
 						<a href="logout.php">Logout</a>
