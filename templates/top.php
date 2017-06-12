@@ -19,7 +19,14 @@ require_once('config/config.php');
 		<meta name="keywords" content="<?=(isset($keywords))?$keywords:"Нужна ли кошка в квартире?";?>">
 		<link type="text/css" rel="stylesheet" href="media/bootstrap/css/bootstrap.min.css"/>
 		<link type="text/css" rel="stylesheet" href="media/css/style.css"/>
-	
+		<?php
+		if($_SESSION['user_id']){
+		?>
+		<script src="/js/home.js">
+		</script>
+		<?php
+		}
+		?>
 	</head>
 	
 	<body>
@@ -43,7 +50,7 @@ require_once('config/config.php');
 					<?php
 				}
 			?>
-			<a href="index.php?url=care">новости</a>
+			<a href="cats.php">Добавить кошку</a>
 			<a href="index.php?url=breed">клички</a>
 			<a href="index.php?url=about">кормление</a>
 			<a href="index.php?url=contacts">статьи</a>
