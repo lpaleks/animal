@@ -22,8 +22,8 @@ require_once('config/config.php');
 		<?php
 		if($_SESSION['user_id']){
 		?>
-		<script src="/js/home.js">
-		</script>
+		<script src="/js/home.js"></script>
+		<script src="/ckeditor/ckeditor.js"></script>
 		<?php
 		}
 		?>

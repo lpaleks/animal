@@ -43,7 +43,7 @@ if($_POST){
   <br>
   <div class="form-group">
     <label for="exampleInputPassword1">Введите описание</label>
-    <input  class="form-control" id="exampleInputPassword1" name="description" placeholder="Описание" required>
+    <textarea  class="ckeditor form-control" id="exampleInputPassword1" name="description" placeholder="Описание" required></textarea>
   </div>
 	
 
@@ -59,7 +59,7 @@ if($_POST){
 
 	<br>
     <div class="form-group">
-    <a class="btn btn-success" href="cats.php">Вернуться к списку</a>	
+    <a class="btn btn-success" href="cats.php"></a>	
 	</div>
 	
 </div>
