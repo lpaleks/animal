@@ -19,9 +19,22 @@ require_once('config/config.php');
 		<meta name="keywords" content="<?=(isset($keywords))?$keywords:"Нужна ли кошка в квартире?";?>">
 		<link type="text/css" rel="stylesheet" href="media/bootstrap/css/bootstrap.min.css"/>
 		<link type="text/css" rel="stylesheet" href="media/css/style.css"/>
+		
+		<script src="/js/jquery-3.2.1.min.js"></script>
 		<?php
+	if(count($scripts)>0){
+		foreach($scripts as $one){
+		?>
+			<script src="<?=$one?>">
+		
+			</script>
+		<?php
+		}
+	}
+		
 		if($_SESSION['user_id']){
 		?>
+		
 		<script src="/js/home.js"></script>
 		<script src="/ckeditor/ckeditor.js"></script>
 		<?php
